@@ -26,11 +26,11 @@ pcps.sig(comm, dist.spp, envir, method = "bray",
 
 \details{
 
-The function generates principal coordinates of phylogenetic structure (\code{\link{pcps}}) and run a generalized linear model  (\code{\link{glm}}) with a gaussian error distribution (see \code{\link{family}}). The significance is accessed via null model what shuffle terminal tips across the phylogenetic tree and generate a set of random PCPS. The random PCPS used in the model is submitted to a procrustean adjustment (see \code{\link{procrustes}}), and the fitted values between observed PCPS and random PCPS is obtained. The adjusted null PCPS is used in to rerun the model, generating a null F value. The observed F value is compared with the null F values to generate a probability value of the original F value being generated merely by chance.
+The function generates principal coordinates of phylogenetic structure (\code{\link{pcps}}) and run a generalized linear model  (\code{\link{glm}}) with a gaussian error distribution (see \code{\link{family}}). The significance is obtained via a null model that shuffles terminal tips across the phylogenetic tree and generates a set of null PCPS. Each null PCPS is submitted to a procrustean adjustment (see \code{\link{procrustes}}), and the fitted values between observed PCPS and null PCPS is obtained. The adjusted null PCPS is used to rerun the model, generating a null F value. The observed F value is compared with the null F values to generate a probability value of the original F value being generated merely by chance.
 
 The item formula is an expression of the form pcps.1 ~ model. The response term must be the pcps name, for example pcps.1, pcps.2, pcps.12.
 
-The item AsFactors change a environmental variable for the class \code{\link{factor}}. The sequence is the same that in the environmental data matrix. Use \code{\link{c}} to combine more that one variable.
+The item AsFactors changes a environmental variable for the class \code{\link{factor}}. The sequence is the same that in the environmental data matrix. Use \code{\link{c}} to combine more that one variable.
 }
 
 \value{

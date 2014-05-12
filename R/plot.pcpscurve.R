@@ -16,18 +16,16 @@ plot.pcpscurve<-function(x,type="b",errorbars=c("none","sd","se","quantile"),pro
 		if (errorbars=="sd") {
 			error_X<-apply(X,2,sd,na.rm=T)
 			error_Y<-apply(Y,2,sd,na.rm=T)
-			arrows(mean_X,mean_Y-error_Y,mean_X,mean_Y+error_Y+0.001,angle=90,code=3,length=0.05,lwd=0.8,col=errbar.col)
-			arrows(mean_X-error_X,mean_Y,mean_X+error_X+0.001,mean_Y,angle=90,code=3,length=0.05,lwd=0.8,col=errbar.col)
-			points(mean_X,mean_Y,col= errbar.col,pch=errbar.pch)	
+			plotCI(mean_X,mean_Y,error_Y,error_Y,err="y",add=TRUE,col= errbar.col,pch=errbar.pch)
+			plotCI(mean_X,mean_Y,error_X,error_X,err="x",add=TRUE,col= errbar.col,pch=errbar.pch)
 		}
 		if(errorbars=="se"){
 			error_X<-apply(X,2,sd,na.rm=T)
 			error_Y<-apply(Y,2,sd,na.rm=T)
 			error_X<-error_X/sqrt(N)
 			error_Y<-error_Y/sqrt(N)	
-			arrows(mean_X,mean_Y-error_Y,mean_X,mean_Y+error_Y+0.001,angle=90,code=3,length=0.05,lwd=0.8,col=errbar.col)
-			arrows(mean_X-error_X,mean_Y,mean_X+error_X+0.001,mean_Y,angle=90,code=3,length=0.05,lwd=0.8,col=errbar.col)
-			points(mean_X,mean_Y,col= errbar.col,pch=errbar.pch)		
+			plotCI(mean_X,mean_Y,error_Y,error_Y,err="y",add=TRUE,col= errbar.col,pch=errbar.pch)
+			plotCI(mean_X,mean_Y,error_X,error_X,err="x",add=TRUE,col= errbar.col,pch=errbar.pch)
 		}
 		if (errorbars=="quantile") {
 			if(length(probs)!=2){
@@ -35,9 +33,8 @@ plot.pcpscurve<-function(x,type="b",errorbars=c("none","sd","se","quantile"),pro
 			}
 			error_X<-apply(X,2,quantile,na.rm=T,probs=probs)
 			error_Y<-apply(Y,2,quantile,na.rm=T,probs=probs)
-			arrows(mean_X,error_Y[1, ],mean_X,error_Y[2, ]+0.001,angle=90,code=3,length=0.05, lwd=0.8,col= errbar.col)
-			arrows(error_X[1, ],mean_Y,error_X[2, ]+0.001,mean_Y,angle=90, code=3,length=0.05, lwd=0.8,col= errbar.col)
-			points(mean_X,mean_Y,col= errbar.col,pch=errbar.pch)
+			plotCI(mean_X,mean_Y,li=error_Y[1,],ui=error_Y[2,],err="y",add=TRUE,col= errbar.col,pch=errbar.pch)
+			plotCI(mean_X,mean_Y,li=error_X[1,],ui=error_X[2,],err="x",add=TRUE,col= errbar.col,pch=errbar.pch)
 		}
 		if(errorbars=="none"){
 			points(mean_X,mean_Y,col= errbar.col,pch=errbar.pch)

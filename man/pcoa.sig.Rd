@@ -24,7 +24,7 @@ pcoa.sig(data, dist = "gower", correction = "none", squareroot = FALSE,
 \arguments{
 \item{data}{Community data matrix.} 
 \item{dist}{Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist="gower").}
-\item{correction}{Correction methods for negative eigenvalues, as accepted by pcoa: "lingoes" and "cailliez" (Default correction="none").}
+\item{correction}{Correction methods for negative eigenvalues, as accepted by \code{\link{pcoa}}: "lingoes" and "cailliez" (Default correction="none").}
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity index (Default squareroot = FALSE).}
 \item{axis}{Maximum number of ordination principal axes to be monitored (Default axis=6).}
 \item{n.start}{Initial sample size. One sampling unit is added at each sampling step. If n.start = NULL initial sample size is equal to total sample size (Default n.start=NULL).}
@@ -78,7 +78,7 @@ Pillar, V.D. (1999). The bootstrapped ordination reexamined. Journal of Vegetati
 Vanderlei Júlio Debastiani <vanderleidebastiani@yahoo.com.br>
 }
 
-\seealso{\code{\link{procrustes}} 
+\seealso{\code{\link{pcoa}}, \code{\link{procrustes}} 
 }
 
 \examples{
