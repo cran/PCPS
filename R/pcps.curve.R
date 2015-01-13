@@ -40,7 +40,7 @@ pcps.curve<-function(comm, dist.spp,trait,method = "bray", squareroot = TRUE,nul
 			}
 		}
 	}
-	ReTuRn<-list(curve_obs=curve_obs)
+	ReTuRn<-list(curve.obs=curve_obs)
 	if(null.model){
 		ReTuRn<-list(curve.obs=curve_obs,curve.null=res_curve_null)	
 	}

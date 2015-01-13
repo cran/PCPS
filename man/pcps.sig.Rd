@@ -10,7 +10,8 @@ Analyze the association between PCPS axes and environmental predictors via null 
 
 \usage{
 pcps.sig(comm, dist.spp, envir, method = "bray", 
-        squareroot = TRUE, formula, runs = 999, AsFactors = NULL)
+        squareroot = TRUE, formula, family = gaussian,
+        runs = 999, AsFactors = NULL)
 }
 
 \arguments{
@@ -20,13 +21,14 @@ pcps.sig(comm, dist.spp, envir, method = "bray",
 \item{method}{Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist="bray").}
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity index (Default squareroot = TRUE).}
 \item{formula}{An object of class \code{\link{formula}} quotation marks. See Details.}
+\item{family}{A description of the error distribution to be used in the model. See \code{\link{family}} (Dafault family = gaussian).}
 \item{runs}{Number of permutations for assessing significance.}
 \item{AsFactors}{Encode an environmental variable as factor. See Details.}
 }
 
 \details{
 
-The function generates principal coordinates of phylogenetic structure (\code{\link{pcps}}) and run a generalized linear model  (\code{\link{glm}}) with a gaussian error distribution (see \code{\link{family}}). The significance is obtained via a null model that shuffles terminal tips across the phylogenetic tree and generates a set of null PCPS. Each null PCPS is submitted to a procrustean adjustment (see \code{\link{procrustes}}), and the fitted values between observed PCPS and null PCPS is obtained. The adjusted null PCPS is used to rerun the model, generating a null F value. The observed F value is compared with the null F values to generate a probability value of the original F value being generated merely by chance.
+The function generates principal coordinates of phylogenetic structure (\code{\link{pcps}}) and run a generalized linear model (\code{\link{glm}}) with a gaussian error distribution (see \code{\link{family}}). The significance is obtained via two null models, one that shuffles sites across the environmental gradient and another that shuffles terminal tips(taxa) across the phylogenetic tree. The first null model (site shuffle) shuffles the site position across the environmental gradient and rerun the same model, generating a null F value. The second null model (taxa shuffle), shuffles terminal tips across the phylogenetic tree and generates a set of null PCPS. Each null PCPS is submitted to a procrustean adjustment (see \code{\link{procrustes}}), and the fitted values between observed PCPS and null PCPS is obtained. The adjusted null PCPS is used to rerun the model, generating another null F value. The observed F value is compared independently with both null sets of F values to generate a probability value of the original F value being generated merely by chance according to each null model.
 
 The item formula is an expression of the form pcps.1 ~ model. The response term must be the pcps name, for example pcps.1, pcps.2, pcps.12.
 
@@ -38,7 +40,8 @@ The item AsFactors changes a environmental variable for the class \code{\link{fa
 \item{Envir_class}{The class of each variable in environmental data.}
 \item{formula}{The formula used.}
 \item{f.obs}{Observed F value in GLM.}
-\item{p}{The p value.}
+\item{p.site.shuffle}{The p value for the site shuffle null model.}
+\item{p.taxa.shuffle}{The p value for the taxa shuffle null model.}
 }
 
 \references{

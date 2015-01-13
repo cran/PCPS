@@ -1,11 +1,11 @@
-87b24f8be3c3ee4a615b6c0b732797e9 *DESCRIPTION
+923f29149661e61bed90548089e77473 *DESCRIPTION
 2ef3d2a2a48fcce23693a4e65e56cf49 *NAMESPACE
 3607ba166c307ba15c6e4a8ed10d6445 *R/define.clade.R
 6d9c6e9ada71a9a37fd9703b3e26e64c *R/pcoa.sig.R
 a84dcee72ebc0b48b3b4a34312a2a176 *R/pcps.R
-545d1b94d1d531ff7452475538e863c0 *R/pcps.curve.R
-25f458703690dcf6cee25aa8c41652e2 *R/pcps.sig.R
-23fdb0e7c64fddc23d0db1f68fe8c420 *R/plot.pcps.R
+4267ee1a4302bc9bcc848135c5d07405 *R/pcps.curve.R
+45d31316d035477545ad0142a81cdfd0 *R/pcps.sig.R
+2cada175bd336d6e52fffa56b2b11702 *R/plot.pcps.R
 833ce64a96869d10c580549c5ee17448 *R/plot.pcpscurve.R
 56f03f1ad69fd6eb2ee616e81de1eb09 *R/print.pcoasig.R
 bc21f92a6724dd0edb83b85e40fa7ef3 *R/print.pcps.R
@@ -17,7 +17,7 @@ f59d8b94e4d14573450a194e091377e0 *R/scores.pcoasig.R
 2bd352beeeec2f36849f08eeb91dda49 *R/summary.pcps.R
 9b2c7c85b0fe3c72e19da082524f6ae4 *man/define.clade.Rd
 fa30cfa572477c060a7cd00ab5bef00a *man/pcoa.sig.Rd
-ce30dbeeb4d000cac04274598bb54a78 *man/pcps.Rd
+65d903026e8eebe2da4c2afd580dbede *man/pcps.Rd
 b9ec5981d5c0b3c4b934df007cefacb3 *man/pcps.curve.Rd
-7f329d7c69b1451f16b41e82248e3e79 *man/pcps.sig.Rd
+fa92aaf2c699b51a6cfa7f2519ee3b29 *man/pcps.sig.Rd
 572950072d7984a156b0e60233ecf394 *man/self.belonging.Rd
