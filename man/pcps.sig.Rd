@@ -4,21 +4,23 @@
 \name{matrix.p.sig}
 \alias{matrix.p.sig}
 \alias{pcps.sig}
+\alias{matrix.p.sig}
 \title{Association between phylogeny-weighted species composition and environmental predictors}
 \usage{
-matrix.p.sig(comm, dist.spp, envir, analysis = c("adonis", "mantel"),
+matrix.p.sig(comm, phylodist, envir, analysis = c("adonis", "mantel"),
   method = "bray", squareroot = TRUE, method.envir = "euclidean",
-  runs = 999)
+  runs = 999, parallel = NULL, newClusters = TRUE, CL = NULL)
 
-pcps.sig(comm, dist.spp, envir, analysis = c("glm", "rda"), method = "bray",
-  squareroot = TRUE, formula, family = gaussian, AsFactors = NULL,
-  pcps.choices = c(1, 2, 3, 4), runs = 999)
+pcps.sig(comm, phylodist, envir, analysis = c("glm", "rda"),
+  method = "bray", squareroot = TRUE, formula, family = stats::gaussian,
+  AsFactors = NULL, pcps.choices = c(1, 2, 3, 4), runs = 999,
+  parallel = NULL, newClusters = TRUE, CL = NULL)
 }
 \arguments{
 \item{comm}{Community data, with species as columns and sampling units as rows. This matrix 
 can contain either presence/absence or abundance data.}
 
-\item{dist.spp}{Matrix containing phylogenetic distances between species.}
+\item{phylodist}{Matrix containing phylogenetic distances between species.}
 
 \item{envir}{Environmental variables for each community, with variables as columns and 
 sampling units as rows.}
@@ -37,6 +39,13 @@ as accepted by vegdist used in Mantel analysis (Default method.envir = "euclidea
 
 \item{runs}{Number of permutations for assessing significance.}
 
+\item{parallel}{Number of parallel processes.  Tip: use detectCores() (Default parallel = NULL).}
+
+\item{newClusters}{Logical argument (TRUE or FALSE) to specify if make new parallel 
+processes or use predefined socket cluster. Only if parallel is different of NULL (Default newClusters = TRUE).}
+
+\item{CL}{A predefined socket cluster done with parallel package.}
+
 \item{formula}{An object of class \code{\link{formula}} quotation marks used in GLM analysis. 
 See Details.}
 
@@ -49,7 +58,7 @@ See \code{\link{family}} (Dafault family = gaussian).}
 }
 \value{
 \item{model}{The model, an object of class glm, rda, adonis or mantel.}
-\item{Envir_class}{The class of each variable in environmental data in glm.}
+\item{envir_class}{The class of each variable in environmental data in glm.}
 \item{formula}{The formula used in glm.} \item{statistic.obs}{Observed F value or r value.}
 \item{p.site.shuffle}{The p value for the site shuffle null model.}
 \item{p.taxa.shuffle}{The p value for the taxa shuffle null model.}
@@ -96,12 +105,10 @@ more that one variable.
 data(flona)
 pcps.sig(flona$community, flona$phylo, flona$environment, analysis = "glm",
         formula = "pcps.1~alt", runs = 99)
-matrix.p.sig(flona$community,flona$phylo,flona$environment[,2],
-        analysis = "adonis", runs=99)
+matrix.p.sig(flona$community,flona$phylo,flona$environment[, 2, drop = FALSE],
+        analysis = "adonis", runs = 99)
 
-}
-\author{
-Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>
+
 }
 \references{
 Duarte, L.S. (2011). Phylogenetic habitat filtering influences forest 
@@ -111,5 +118,7 @@ nucleation in grasslands. Oikos, 120, 208:215.
 \code{\link{matrix.p}}, \code{\link{pcps}}, \code{\link{procrustes}}, 
 \code{\link{glm}}, \code{\link{rda}}, \code{\link{adonis}}, \code{\link{mantel}}
 }
+\author{
+Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>
+}
 \keyword{PCPS}
-

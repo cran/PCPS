@@ -33,17 +33,16 @@ The phylogenetic tree must contain the node labels for the function work. Use th
 \examples{
 
 require(ape)	
-tree<-makeNodeLabel(rcoal(20))
+tree<-makeNodeLabel(rcoal(10))
 clades<-define.clade(tree, threshold = 0.8, method = "threshold")
 clades
 plot.phylo(tree, show.node.label = TRUE)
 abline(v = clades$height)
 }
-\author{
-Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>
-}
 \seealso{
 \code{\link{makeNodeLabel}}
 }
+\author{
+Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>
+}
 \keyword{PCPS}
-
