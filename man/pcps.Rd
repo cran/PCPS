@@ -50,7 +50,7 @@ phylodist must not be specified. See details.}
 sequence in the community data follows the same order as the one in the phylodist 
 matrix (Default checkdata = TRUE).}
 
-\item{method}{Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist="bray").}
+\item{method}{Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist="bray").}
 
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of 
 dissimilarity index (Default squareroot = TRUE).}
@@ -83,7 +83,7 @@ Function to generate Principal Coordinates of Phylogenetic Structure (PCPS).
 }
 \details{
 The function obtains a matrix containing phylogeny-weighted species composition 
-(\code{\link{matrix.p}}) and is submitted to principal coordinates analysis (PCoA). 
+(\code{\link[SYNCSA]{matrix.p}}) and is submitted to principal coordinates analysis (PCoA). 
 This method generates the principal coordinates of phylogenetic structure 
 (PCPS) (Duarte, 2011).
 
@@ -100,7 +100,7 @@ the phylodist argument must not be specified.
 
 The function summary or the function scores.pcps re-scales the correlation values 
 for obtain the scores for \code{\link{biplot}} graphics. The function plot draws a 
-simple biplot and represent clades as "spider" graphs (see \code{\link{ordispider}}).
+simple biplot and represent clades as "spider" graphs (see \code{\link[vegan]{ordispider}}).
 }
 \note{
 \strong{IMPORTANT}: The sequence species show up in the community data matrix MUST be the 
@@ -121,7 +121,7 @@ Duarte, L.S. (2011). Phylogenetic habitat filtering influences forest nucleation
 in grasslands. Oikos, 120, 208:215.
 }
 \seealso{
-\code{\link{matrix.p}}, \code{\link{wcmdscale}}, \code{\link{ordispider}}, \code{\link{ordilabel}}
+\code{\link[SYNCSA]{matrix.p}}, \code{\link[vegan]{wcmdscale}}, \code{\link[vegan]{ordispider}}, \code{\link[vegan]{ordilabel}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

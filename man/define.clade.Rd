@@ -28,7 +28,7 @@ If threshold is near to zero the cutting is near the root, if threshold near to 
 cutting is near the tips.
 
 The phylogenetic tree must contain the node labels for the function work. Use the 
-\code{\link{makeNodeLabel}} for defining node labels in a flexible way.
+\code{\link[ape]{makeNodeLabel}} for defining node labels in a flexible way.
 }
 \examples{
 
@@ -40,7 +40,7 @@ plot.phylo(tree, show.node.label = TRUE)
 abline(v = clades$height)
 }
 \seealso{
-\code{\link{makeNodeLabel}}
+\code{\link[ape]{makeNodeLabel}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

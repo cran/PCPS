@@ -2,12 +2,12 @@
 #'
 #' @description Package \strong{PCPS} requires that the species and community sequence in
 #' the data.frame or matrix must be the same for all data.frame/matrices. 
-#' This function use the function \code{\link{organize.syncsa}} to organize the data.
+#' This function use the function \code{\link[SYNCSA]{organize.syncsa}} to organize the data.
 #'
 #' @details The function, as well as organize.syncsa, organizes the data for the functions of the package
 #' PCPS, placing the matrices of community, phylogenetic distance and environmental varibles in the same order.
 #' 
-#' Essentially this function is the same as function \code{\link{organize.syncsa}}. This 
+#' Essentially this function is the same as function \code{\link[SYNCSA]{organize.syncsa}}. This 
 #' use as reference the community data for organize all data.frame or matrices
 #' in the same order that the sampling units names and species names found in community
 #' data set. For this all data sets entered must be correctly named, with rows and columns
@@ -17,7 +17,7 @@
 #' organizes the data despite the absence of one of the data.frames or matrices,
 #' provided that the community data had been entered. Unspecified data will
 #' appear as NULL. All arguments this funtion will be passed to organize.syncsa, 
-#' see more details in \code{\link{organize.syncsa}}.
+#' see more details in \code{\link[SYNCSA]{organize.syncsa}}.
 #'
 #'
 #' @encoding UTF-8
@@ -38,7 +38,7 @@
 #' \item{phylodist}{Phylogenetic distance.}
 #' \item{environmental}{Environmental variables.}
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{organize.syncsa}}
+#' @seealso \code{\link[SYNCSA]{organize.syncsa}}
 #' @keywords PCPS
 #' @examples
 #' data(ADRS)

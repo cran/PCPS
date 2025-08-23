@@ -44,7 +44,7 @@ Discriminating trait-convergence and trait-divergence assembly patterns in
 ecological community gradients. Journal of Vegetation Science, 20, 334:348.
 }
 \seealso{
-\code{\link{belonging}}
+\code{\link[SYNCSA]{belonging}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

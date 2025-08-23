@@ -14,7 +14,7 @@
 #' @param phylodist Matrix containing phylogenetic distances between species.
 #' @param runs Number of matrix will be generated (Default runs = NULL).
 #' @param calcpcps Logical argument (TRUE or FALSE) to specify if generate the PCPS (Default calcpcps = FALSE).
-#' @param method Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist = "bray").
+#' @param method Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist = "bray").
 #' @param squareroot Logical argument (TRUE or FALSE) to specify if use square root of 
 #' dissimilarity index (Default squareroot = TRUE).
 #' @param adjpcps Logical argument (TRUE or FALSE) to specify if return fitted PCPS (Default adjpcps = FALSE).
@@ -30,7 +30,7 @@
 #' \item{pcps.null.taxa}{A list with each permuted PCPS according with taxa shuffle null model.}
 #' \item{pcps.null.taxa.adj}{A list with each permuted PCPS (adjusted) according with taxa shuffle null model.}
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{matrix.p}}, \code{\link{pcps}}, \code{\link{matrix.p.sig}}, \code{\link{pcps.sig}}
+#' @seealso \code{\link[SYNCSA]{matrix.p}}, \code{\link{pcps}}, \code{\link{matrix.p.sig}}, \code{\link{pcps.sig}}
 #' @keywords PCPS
 #' @export
 matrix.p.null <- function(comm, phylodist, runs = NULL, calcpcps = FALSE, method = "bray", squareroot = TRUE, adjpcps = FALSE, choices = NULL){

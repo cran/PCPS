@@ -19,7 +19,7 @@
 #' @importFrom stats fitted cor
 #' @aliases pcoa.sig print.pcoasig summary.pcoasig print.summarypcoasig
 #' @param data Community data matrix.
-#' @param method Method for dissimilarity index, as accepted by \code{\link{vegdist}} (Default method = "gower").
+#' @param method Method for dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default method = "gower").
 #' @param squareroot Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity 
 #' index (Default squareroot = FALSE).
 #' @param axis Maximum number of ordination principal axes to be monitored (Default axis = 6).
@@ -49,7 +49,7 @@
 #' \item{n.permut.bootstrap}{Number of iterations for each axis in bootstrap step.}
 #' \item{n.permut.null}{Number of iterations for each axis in null step.} \item{probabilities}{Probabilities for each axis.}
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{pcoa}}, \code{\link{procrustes}} 
+#' @seealso \code{\link[ape]{pcoa}}, \code{\link[vegan]{procrustes}} 
 #' @references Pillar, V.D. (1999). The bootstrapped ordination reexamined. Journal of Vegetation Science 10, 895-902.
 #' @keywords PCPS
 #' @examples

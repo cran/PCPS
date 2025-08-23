@@ -100,7 +100,7 @@ environmental data (Default checkdata = TRUE).}
 
 \item{...}{Other arguments passed to FUN function. See Details and Examples.}
 
-\item{method}{Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist = "bray").}
+\item{method}{Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist = "bray").}
 
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of 
 dissimilarity index (Default squareroot = TRUE).}
@@ -109,7 +109,7 @@ dissimilarity index (Default squareroot = TRUE).}
 
 \item{x}{An object of class pcpssig or other object to apply the function passed by FUN. See Details.}
 
-\item{method.p}{Resemblance index between communities based on P matrix, as accepted by \code{\link{vegdist}}. 
+\item{method.p}{Resemblance index between communities based on P matrix, as accepted by \code{\link[vegan]{vegdist}}. 
 Used in FUN.MANTEL, FUN.ADONIS, FUN.ADONIS2.global and FUN.ADONIS2.margin analysis. See Details and Examples.}
 
 \item{sqrt.p}{Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity P matrix. Used in
@@ -120,7 +120,7 @@ FUN.ADONIS2.global, FUN.ADONIS2.margin, FUN.GLS.marginal, FUN.GLS.sequential, FU
 
 \item{return.model}{Must not be specified. See Details.}
 
-\item{method.envir}{Resemblance index between communities based on environmental variables, as accepted by \code{\link{vegdist}}.
+\item{method.envir}{Resemblance index between communities based on environmental variables, as accepted by \code{\link[vegan]{vegdist}}.
 Used in FUN.MANTEL analysis. See Details and Examples.}
 }
 \value{
@@ -142,15 +142,15 @@ across a metacommunity by means of phylogenetic fuzzy weighting.
 \details{
 Each metacommunity is submitted to phylogenetic fuzzy weighting, generating a matrix
 that describing the phylogeny-weighted species composition of the communities
-(\code{\link{matrix.p}}). The function matrix.p.sig test directly the association 
+(\code{\link[SYNCSA]{matrix.p}}). The function matrix.p.sig test directly the association 
 this matrix with the environmental predictors. The pairwise dissimilarities are 
-submitted to Mantel test (\code{\link{mantel}}) or ADONIS test (\code{\link{adonis}} or \code{\link{adonis2}})
+submitted to Mantel test (\code{\link[vegan]{mantel}}) or ADONIS test (\code{\link[vegan]{adonis}} or \code{\link[vegan]{adonis2}})
 to evaluate the influence of an environmental gradient on species dispersion across 
 the communities. The function pcps.sig generates principal coordinates of phylogenetic
 structure (\code{\link{pcps}}) and use a single axis for run a generalized linear 
-model (GLM, \code{\link{glm}}), linear model using generalized least squares (GLS, \code{\link{gls}}),
-linear mixed-effects models (LME, \code{\link{lme}}) or use set of axis for run a distance-based redundancy
-analysis (db-RDA, \code{\link{rda}}).
+model (GLM, \code{\link{glm}}), linear model using generalized least squares (GLS, \code{\link[nlme]{gls}}),
+linear mixed-effects models (LME, \code{\link[nlme]{lme}}) or use set of axis for run a distance-based redundancy
+analysis (db-RDA, \code{\link[vegan]{rda}}).
 
 The sequence species show up in the community data matrix must be the 
 same as they show up in the phylogenetic distance matrix and, similarly, 
@@ -172,7 +172,7 @@ second null model (taxa shuffle), shuffles terminal tips across the phylogenetic
 generates a null matrix containing phylogeny-weighted species composition and rerun the same
 model, generating another null F value. In the pcps.sig function are generate set of null PCPS
 and each null PCPS (or set of PCPS in RDA) is submitted to a procrustean adjustment 
-(see \code{\link{procrustes}}), and the fitted values between observed PCPS and null PCPS is 
+(see \code{\link[vegan]{procrustes}}), and the fitted values between observed PCPS and null PCPS is 
 obtained. The adjusted null PCPS is used to rerun the model, generating another null F value. 
 The observed F value (or r value) is compared independently with both null sets of F values 
 (or r value) to generate a probability value of the original F value being generated merely by
@@ -193,7 +193,7 @@ for each null model is performed as described here, NOT using p value of basic f
 
 Mantel test that can be used in matrix P analysis. The arguments \emph{method.p} and \emph{sqrt.p} are specified for determine resemblance 
 index between communities based on P matrix. The argument \emph{method.envir} is specified to determine resemblance 
-index between communities based on environmental variables. The significance is assess using r value, see more in \code{\link{mantel}}.
+index between communities based on environmental variables. The significance is assess using r value, see more in \code{\link[vegan]{mantel}}.
 
 \strong{FUN.ADONIS}
 
@@ -201,7 +201,7 @@ Multivariate analysis of variance that can be used in matrix P analysis. The arg
 index between communities based on P matrix. The argument \emph{formula} is specified, where the left hand side gives 
 the resemblance data, right hand side gives the variables. The resemblance data is internally named \emph{p.dist}, 
 thus formula is an expression of the form \emph{p.dist ~ model} (see Examples). The significance is assess using overall F value, 
-see more in \code{\link{adonis}}.
+see more in \code{\link[vegan]{adonis}}.
 
 \strong{FUN.ADONIS2.global and FUN.ADONIS2.margin}
 
@@ -209,12 +209,12 @@ Multivariate analysis of variance that can be used in matrix P analysis. The arg
 index between communities based on P matrix. The argument \emph{formula} is specified, where the left hand side gives 
 the resemblance data, right hand side gives the variables. The resemblance data is internally named \emph{p.dist}, 
 thus formula is an expression of the form \emph{p.dist ~ model} (see Examples). The significance is assess using F value 
-and the difference between function is due to the argument \emph{by} in \code{\link{adonis2}}. The function 
+and the difference between function is due to the argument \emph{by} in \code{\link[vegan]{adonis2}}. The function 
 \emph{FUN.ADONIS2.global} use as default \emph{by = NULL} to assess the overall significance of all terms together
 whereas the function \emph{FUN.ADONIS2.margin} use as default \emph{by = margin} to assess the marginal effects of 
-the terms and return F and p value for each term. See more in \code{\link{adonis2}}.
+the terms and return F and p value for each term. See more in \code{\link[vegan]{adonis2}}.
 
-The function \code{\link{adonis2}} evaluate the formula argument in the global environment, however CRAN 
+The function \code{\link[vegan]{adonis2}} evaluate the formula argument in the global environment, however CRAN 
 do not allow assignments to the global environment. As a temporary workaround, copy and run the lines below to make 
 the functions FUN.ADONIS2.global and FUN.ADONIS2.margin available.
 
@@ -274,7 +274,7 @@ F value, see more in \code{\link{glm}}.
 
 Redundancy analysis that can be used in PCPS analysis. The RDA analysis is performed using all PCPS specified with choices argument and 
 all environmental variables specified by envir argument. The significance is assess using overall 
-F value, see more in \code{\link{rda}}.
+F value, see more in \code{\link[vegan]{rda}}.
 
 \strong{FUN.GLS.marginal and FUN.GLS.sequential}
 
@@ -283,11 +283,11 @@ right hand side gives the variables. The PCPS are internally named sequentially 
 on. Thus, formula is an expression of the form \emph{pcps.1 ~ model} (see Examples). The type of environmental variables are 
 extracted directly from \emph{envir} argument, thus variables of class \code{\link{factor}} can be already
 specified in \emph{envir} \code{\link{data.frame}} or through \emph{formula} argument. The significance is assess using F value 
-and the difference between function is due to the argument \emph{type} in \code{\link{anova.gls}}. The function 
+and the difference between function is due to the argument \emph{type} in \code{\link[nlme]{anova.gls}}. The function 
 \emph{FUN.GLS.marginal} use as default \emph{type = marginal} to assess the marginal significance of all terms
 whereas the function \emph{FUN.GSL.sequential} use as default \emph{type = sequential} to assess the sequential effects of 
-the terms. Those funcitons return all F values calculed by \code{\link{anova.gls}}, including the intercept if it is in the model. 
-Additional arguments as \emph{correlation} can be passed by \emph{...} argument. See more in \code{\link{gls}} and \code{\link{anova.gls}}.
+the terms. Those funcitons return all F values calculed by \code{\link[nlme]{anova.gls}}, including the intercept if it is in the model. 
+Additional arguments as \emph{correlation} can be passed by \emph{...} argument. See more in \code{\link[nlme]{gls}} and \code{\link[nlme]{anova.gls}}.
 
 \strong{FUN.LME.marginal and FUN.LME.sequential}
 
@@ -296,11 +296,11 @@ right hand side gives the variables. The PCPS are internally named sequentially 
 on. Thus, formula is an expression of the form \emph{pcps.1 ~ model} (see Examples). The type of environmental variables are 
 extracted directly from \emph{envir} argument, thus variables of class \code{\link{factor}} can be already
 specified in \emph{envir} \code{\link{data.frame}} or through \emph{formula} argument. The significance is assess using F value 
-and the difference between function is due to the argument \emph{type} in \code{\link{anova.lme}}. The function 
+and the difference between function is due to the argument \emph{type} in \code{\link[nlme]{anova.lme}}. The function 
 \emph{FUN.LME.marginal} use as default \emph{type = marginal} to assess the marginal significance of all terms
 whereas the function \emph{FUN.LME.sequential} use as default \emph{type = sequential} to assess the sequential effects of 
-the terms. Those funcitons return all F values calculed by \code{\link{anova.lme}}, including the intercept if it is in the model. 
-Additional arguments as \emph{correlation} and \emph{random} can be passed by \emph{...} argument. See more in \code{\link{lme}} and \code{\link{anova.lme}}.
+the terms. Those funcitons return all F values calculed by \code{\link[nlme]{anova.lme}}, including the intercept if it is in the model. 
+Additional arguments as \emph{correlation} and \emph{random} can be passed by \emph{...} argument. See more in \code{\link[nlme]{lme}} and \code{\link[nlme]{anova.lme}}.
 
 \strong{Additional function}
 
@@ -399,9 +399,9 @@ Duarte, L.S. (2016). Dissecting phylogenetic fuzzy weighting: theory and applica
 in metacommunity phylogenetics. Methods in Ecology and Evolution, 7(8), 937:946.
 }
 \seealso{
-\code{\link{matrix.p}}, \code{\link{pcps}}, \code{\link{procrustes}}, 
-\code{\link{glm}}, \code{\link{rda}}, \code{\link{adonis}}, \code{\link{adonis2}}, 
-\code{\link{mantel}}
+\code{\link[SYNCSA]{matrix.p}}, \code{\link{pcps}}, \code{\link[vegan]{procrustes}}, 
+\code{\link{glm}}, \code{\link[vegan]{rda}}, \code{\link[vegan]{adonis}}, \code{\link[vegan]{adonis2}}, 
+\code{\link[vegan]{mantel}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

@@ -10,7 +10,7 @@ wcmdscale.org(data, method, squareroot, eig, correlations, ...)
 \arguments{
 \item{data}{Data matrix or dissimilarities of class dist.}
 
-\item{method}{Method for dissimilarity index, as accepted by \code{\link{vegdist}}.}
+\item{method}{Method for dissimilarity index, as accepted by \code{\link[vegan]{vegdist}}.}
 
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root
 of dissimilarity index.}
@@ -28,14 +28,14 @@ eigenvalues.} \item{vectors}{The principal coordinates.} \item{correlations}{Cor
 between axis and original data.}
 }
 \description{
-Internal function for organize the results of \code{\link{wcmdscale}} function.
-The function computes dissimilarity indices using the function \code{\link{vegdist}}
+Internal function for organize the results of \code{\link[vegan]{wcmdscale}} function.
+The function computes dissimilarity indices using the function \code{\link[vegan]{vegdist}}
 and perform Principal Coordinates Analysis (PCoA) using the function 
-\code{\link{wcmdscale}}. If data is of class dist, the funcion do not computes
+\code{\link[vegan]{wcmdscale}}. If data is of class dist, the funcion do not computes
 the dissimilarity indices.
 }
 \seealso{
-\code{\link{vegdist}}, \code{\link{wcmdscale}}
+\code{\link[vegan]{vegdist}}, \code{\link[vegan]{wcmdscale}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

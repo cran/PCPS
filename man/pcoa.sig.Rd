@@ -29,7 +29,7 @@ pcoa.sig(
 \arguments{
 \item{data}{Community data matrix.}
 
-\item{method}{Method for dissimilarity index, as accepted by \code{\link{vegdist}} (Default method = "gower").}
+\item{method}{Method for dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default method = "gower").}
 
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity 
 index (Default squareroot = FALSE).}
@@ -100,7 +100,7 @@ summary(res)$scores
 Pillar, V.D. (1999). The bootstrapped ordination reexamined. Journal of Vegetation Science 10, 895-902.
 }
 \seealso{
-\code{\link{pcoa}}, \code{\link{procrustes}}
+\code{\link[ape]{pcoa}}, \code{\link[vegan]{procrustes}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

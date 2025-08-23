@@ -57,7 +57,7 @@ trait and phylodist must not be specified. See details.}
 sequence in the community data follows the same order as the one in the
 trait and in the phylodist matrices (Default checkdata = TRUE).}
 
-\item{method}{Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist = "bray").}
+\item{method}{Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist = "bray").}
 
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity
 index (Default squareroot = TRUE).}
@@ -156,7 +156,7 @@ Duarte, L.S. (2011). Phylogenetic habitat filtering influences forest nucleation
 in grasslands. Oikos, 120, 208:215.
 }
 \seealso{
-\code{\link{matrix.p}}, \code{\link{pcps}}
+\code{\link[SYNCSA]{matrix.p}}, \code{\link{pcps}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

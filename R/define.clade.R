@@ -7,7 +7,7 @@
 #' cutting is near the tips.
 #' 
 #' The phylogenetic tree must contain the node labels for the function work. Use the 
-#' \code{\link{makeNodeLabel}} for defining node labels in a flexible way.
+#' \code{\link[ape]{makeNodeLabel}} for defining node labels in a flexible way.
 #' 
 #' @encoding UTF-8
 #' @importFrom phylobase phylo4 descendants
@@ -19,7 +19,7 @@
 #' @param method Method to define the clades, "threshold" or "time".
 #' @return \item{clades}{Tips and their clades.} \item{height}{The cutting height (age).}
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{makeNodeLabel}}
+#' @seealso \code{\link[ape]{makeNodeLabel}}
 #' @keywords PCPS
 #' @examples
 #' 

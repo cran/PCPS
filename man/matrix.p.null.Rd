@@ -26,7 +26,7 @@ can contain either presence/absence or abundance data.}
 
 \item{calcpcps}{Logical argument (TRUE or FALSE) to specify if generate the PCPS (Default calcpcps = FALSE).}
 
-\item{method}{Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist = "bray").}
+\item{method}{Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist = "bray").}
 
 \item{squareroot}{Logical argument (TRUE or FALSE) to specify if use square root of 
 dissimilarity index (Default squareroot = TRUE).}
@@ -53,7 +53,7 @@ in \code{\link{matrix.p.sig}} or \code{\link{pcps.sig}}. The result are long lis
 permuted matrices.
 }
 \seealso{
-\code{\link{matrix.p}}, \code{\link{pcps}}, \code{\link{matrix.p.sig}}, \code{\link{pcps.sig}}
+\code{\link[SYNCSA]{matrix.p}}, \code{\link{pcps}}, \code{\link{matrix.p.sig}}, \code{\link{pcps.sig}}
 }
 \author{
 Vanderlei Julio Debastiani <vanderleidebastiani@yahoo.com.br>

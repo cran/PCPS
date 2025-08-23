@@ -3,7 +3,7 @@
 #' @description Function to generate Principal Coordinates of Phylogenetic Structure (PCPS).
 #' 
 #' @details The function obtains a matrix containing phylogeny-weighted species composition 
-#' (\code{\link{matrix.p}}) and is submitted to principal coordinates analysis (PCoA). 
+#' (\code{\link[SYNCSA]{matrix.p}}) and is submitted to principal coordinates analysis (PCoA). 
 #' This method generates the principal coordinates of phylogenetic structure 
 #' (PCPS) (Duarte, 2011).
 #' 
@@ -20,7 +20,7 @@
 #' 
 #' The function summary or the function scores.pcps re-scales the correlation values 
 #' for obtain the scores for \code{\link{biplot}} graphics. The function plot draws a 
-#' simple biplot and represent clades as "spider" graphs (see \code{\link{ordispider}}).
+#' simple biplot and represent clades as "spider" graphs (see \code{\link[vegan]{ordispider}}).
 #' 
 #' @encoding UTF-8
 #' @import SYNCSA
@@ -37,7 +37,7 @@
 #' @param checkdata Logical argument (TRUE or FALSE) to check if species
 #' sequence in the community data follows the same order as the one in the phylodist 
 #' matrix (Default checkdata = TRUE).
-#' @param method Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist="bray").
+#' @param method Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist="bray").
 #' @param squareroot Logical argument (TRUE or FALSE) to specify if use square root of 
 #' dissimilarity index (Default squareroot = TRUE).
 #' @param correlations Logical argument (TRUE or FALSE) to specify if are calculed the correlations
@@ -56,7 +56,7 @@
 #' @note \strong{IMPORTANT}: The sequence species show up in the community data matrix MUST be the 
 #' same as they show up in the phylogenetic distance matrix. See details and \code{\link{organize.pcps}}.
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{matrix.p}}, \code{\link{wcmdscale}}, \code{\link{ordispider}}, \code{\link{ordilabel}}
+#' @seealso \code{\link[SYNCSA]{matrix.p}}, \code{\link[vegan]{wcmdscale}}, \code{\link[vegan]{ordispider}}, \code{\link[vegan]{ordilabel}}
 #' @references Duarte, L.S. (2011). Phylogenetic habitat filtering influences forest nucleation 
 #' in grasslands. Oikos, 120, 208:215.
 #' @keywords PCPS

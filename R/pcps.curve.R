@@ -43,7 +43,7 @@
 #' @param checkdata Logical argument (TRUE or FALSE) to check if species
 #' sequence in the community data follows the same order as the one in the
 #' trait and in the phylodist matrices (Default checkdata = TRUE).
-#' @param method Dissimilarity index, as accepted by \code{\link{vegdist}} (Default dist = "bray").
+#' @param method Dissimilarity index, as accepted by \code{\link[vegan]{vegdist}} (Default dist = "bray").
 #' @param squareroot Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity
 #' index (Default squareroot = TRUE).
 #' @param ranks Logical argument (TRUE or FALSE) to specify if ordinal variables are 
@@ -76,7 +76,7 @@
 #' MUST be the same as that in the phylogenetic distance matrix and in traits
 #' matrix. See details and \code{\link{organize.pcps}}.
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{matrix.p}}, \code{\link{pcps}}
+#' @seealso \code{\link[SYNCSA]{matrix.p}}, \code{\link{pcps}}
 #' @references Duarte, L.S. (2011). Phylogenetic habitat filtering influences forest nucleation
 #' in grasslands. Oikos, 120, 208:215.
 #' @keywords PCPS

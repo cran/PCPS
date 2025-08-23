@@ -17,7 +17,7 @@
 #' in values into range 0 from 1 (Default standardize = TRUE).
 #' @return The self-belonging for each species.
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
-#' @seealso \code{\link{belonging}}
+#' @seealso \code{\link[SYNCSA]{belonging}}
 #' @references Pillar, V.D.; Duarte, L.d.S. (2010). A framework for
 #' metacommunity analysis of phylogenetic structure. Ecology Letters, 13,
 #' 587:596.
