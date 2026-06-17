@@ -7,7 +7,7 @@
 #' that describing the phylogeny-weighted species composition of the communities
 #' (\code{\link[SYNCSA]{matrix.p}}). The function matrix.p.sig test directly the association 
 #' this matrix with the environmental predictors. The pairwise dissimilarities are 
-#' submitted to Mantel test (\code{\link[vegan]{mantel}}) or ADONIS test (\code{\link[vegan]{adonis}} or \code{\link[vegan]{adonis2}})
+#' submitted to Mantel test (\code{\link[vegan]{mantel}}) or ADONIS test (\code{\link[vegan]{adonis2}})
 #' to evaluate the influence of an environmental gradient on species dispersion across 
 #' the communities. The function pcps.sig generates principal coordinates of phylogenetic
 #' structure (\code{\link{pcps}}) and use a single axis for run a generalized linear 
@@ -47,7 +47,7 @@
 #' of package includes ten predefined function, however additional small functions can be easy specify. All
 #' this function uses the environmental variables to analyze the association between phylogeny-weighted species
 #' composition and environmental predictors. For matrix P analysis, in \emph{matrix.p.sig} function, the predefined 
-#' functions available are \emph{FUN.MANTEL}, \emph{FUN.ADONIS}, \emph{FUN.ADONIS2.global} and \emph{FUN.ADONIS2.margin}. For PCPS 
+#' functions available are \emph{FUN.MANTEL}, \emph{FUN.ADONIS2.global} and \emph{FUN.ADONIS2.margin}. For PCPS 
 #' analysis, in \emph{pcps.sig} function, the predefined functions available are \emph{FUN.GLM}, \emph{FUN.RDA}, \emph{FUN.GLS.marginal}, 
 #' \emph{FUN.GLS.sequential}, \emph{FUN.LME.marginal} and \emph{FUN.LME.sequential}. The significance 
 #' for each null model is performed as described here, NOT using p value of basic functions.
@@ -58,13 +58,6 @@
 #' index between communities based on P matrix. The argument \emph{method.envir} is specified to determine resemblance 
 #' index between communities based on environmental variables. The significance is assess using r value, see more in \code{\link[vegan]{mantel}}.
 #' 
-#' \strong{FUN.ADONIS}
-#' 
-#' Multivariate analysis of variance that can be used in matrix P analysis. The arguments \emph{method.p} and \emph{sqrt.p} are specified for determine resemblance 
-#' index between communities based on P matrix. The argument \emph{formula} is specified, where the left hand side gives 
-#' the resemblance data, right hand side gives the variables. The resemblance data is internally named \emph{p.dist}, 
-#' thus formula is an expression of the form \emph{p.dist ~ model} (see Examples). The significance is assess using overall F value, 
-#' see more in \code{\link[vegan]{adonis}}.
 #' 
 #' \strong{FUN.ADONIS2.global and FUN.ADONIS2.margin}
 #' 
@@ -76,53 +69,6 @@
 #' \emph{FUN.ADONIS2.global} use as default \emph{by = NULL} to assess the overall significance of all terms together
 #' whereas the function \emph{FUN.ADONIS2.margin} use as default \emph{by = margin} to assess the marginal effects of 
 #' the terms and return F and p value for each term. See more in \code{\link[vegan]{adonis2}}.
-#' 
-#' The function \code{\link[vegan]{adonis2}} evaluate the formula argument in the global environment, however CRAN 
-#' do not allow assignments to the global environment. As a temporary workaround, copy and run the lines below to make 
-#' the functions FUN.ADONIS2.global and FUN.ADONIS2.margin available.
-#' 
-#' \preformatted{
-#' 
-#' FUN.ADONIS2.global <- function(x, envir, method.p, formula, sqrt.p = TRUE, return.model = FALSE){
-#' p.dist <- vegan::vegdist(x, method = method.p)
-#' if(sqrt.p){
-#'   p.dist <- sqrt(p.dist)
-#' }
-#' assign("p.dist", p.dist, envir = globalenv())
-#' mod.obs <- vegan::adonis2(formula, data = data.frame(envir), permutations = 0, by = NULL, parallel = NULL)
-#' rm(p.dist, envir = globalenv())
-#' statistic.obs <- mod.obs$F[1]
-#' if(return.model){
-#'   res <- list()
-#'   res$mod.obs <- mod.obs
-#'   res$statistic.obs <- statistic.obs
-#' } else{
-#'   res <- statistic.obs
-#' }
-#' return(res)
-#' }
-#' 
-#' FUN.ADONIS2.margin <- function(x, envir, method.p, formula, sqrt.p = TRUE, return.model = FALSE){
-#' p.dist <- vegan::vegdist(x, method = method.p)
-#' if(sqrt.p){
-#'   p.dist <- sqrt(p.dist)
-#' }
-#' assign("p.dist", p.dist, envir = globalenv())
-#' mod.obs <- vegan::adonis2(formula, data = data.frame(envir), permutations = 2, by = "margin", parallel = NULL)
-#' rm(p.dist, envir = globalenv())
-#' nf <- length(mod.obs$F)-2
-#' statistic.obs <- mod.obs$F[seq_len(nf)]
-#' if(return.model){
-#'   res <- list()
-#'   res$mod.obs <- mod.obs
-#'   res$statistic.obs <- statistic.obs
-#' } else{
-#'   res <- statistic.obs
-#' }
-#' return(res)
-#' }
-#'
-#' }
 #' 
 #' \strong{FUN.GLM}
 #' 
@@ -190,11 +136,11 @@
 #' @encoding UTF-8
 #' @include pcps.R
 #' @import SYNCSA
-#' @importFrom vegan procrustes rda adonis adonis2 mantel vegdist
+#' @importFrom vegan procrustes rda adonis2 mantel vegdist
 #' @importFrom parallel makeCluster parLapply stopCluster
 #' @importFrom stats glm summary.lm cor anova
 #' @importFrom nlme lme gls
-#' @aliases pcps.sig matrix.p.sig print.pcpssig FUN.ADONIS FUN.ADONIS2.global FUN.ADONIS2.margin FUN.GLM FUN.MANTEL FUN.RDA FUN.GLS.marginal FUN.GLS.sequential FUN.LME.marginal FUN.LME.sequential
+#' @aliases pcps.sig matrix.p.sig print.pcpssig FUN.ADONIS2.global FUN.ADONIS2.margin FUN.GLM FUN.MANTEL FUN.RDA FUN.GLS.marginal FUN.GLS.sequential FUN.LME.marginal FUN.LME.sequential
 #' @param comm Community data, with species as columns and sampling units as rows. This matrix 
 #' can contain either presence/absence or abundance data.
 #' Alternatively comm can be an object of class metacommunity.data, an alternative
@@ -218,18 +164,18 @@
 #' @param newname New name to be replaced in object returned by \code{\link{matrix.p.null}} (Default newname = "pcps").
 #' @param x An object of class pcpssig or other object to apply the function passed by FUN. See Details.
 #' @param method.p Resemblance index between communities based on P matrix, as accepted by \code{\link[vegan]{vegdist}}. 
-#' Used in FUN.MANTEL, FUN.ADONIS, FUN.ADONIS2.global and FUN.ADONIS2.margin analysis. See Details and Examples.
+#' Used in FUN.MANTEL, FUN.ADONIS2.global and FUN.ADONIS2.margin analysis. See Details and Examples.
 #' @param sqrt.p Logical argument (TRUE or FALSE) to specify if use square root of dissimilarity P matrix. Used in
-#' FUN.MANTEL, FUN.ADONIS, FUN.ADONIS2.global and FUN.ADONIS2.margin analysis. See Details and Examples (Default sqrt.p = TRUE). 
+#' FUN.MANTEL, FUN.ADONIS2.global and FUN.ADONIS2.margin analysis. See Details and Examples (Default sqrt.p = TRUE). 
 #' @param method.envir Resemblance index between communities based on environmental variables, as accepted by \code{\link[vegan]{vegdist}}.
 #' Used in FUN.MANTEL analysis. See Details and Examples.
-#' @param formula An object of class \code{\link{formula}}. Used in FUN.GLM, FUN.ADONIS, 
+#' @param formula An object of class \code{\link{formula}}. Used in FUN.GLM, 
 #' FUN.ADONIS2.global, FUN.ADONIS2.margin, FUN.GLS.marginal, FUN.GLS.sequential, FUN.LME.marginal and FUN.LME.sequential analysis. See Details and Examples.
 #' @param return.model Must not be specified. See Details.
 #' @return \item{call}{The arguments used.}
 #' \item{P.obs}{Phylogeny-weighted species composition matrix.}
 #' \item{PCPS.obs}{The principal coordinates of phylogenetic structure (PCPS)}
-#' \item{model}{The observed model returned by FUN, an object of class glm, gls, lme, rda, adonis, adonis2 or mantel to predefined function.}
+#' \item{model}{The observed model returned by FUN, an object of class glm, gls, lme, rda, adonis2 or mantel to predefined function.}
 #' \item{fun}{The funtion used.}
 #' \item{statistic.null.site}{A matrix with null statistic for site shuffle null model.}
 #' \item{statistic.null.taxa}{A matrix with null statistic for taxa shuffle null model.}
@@ -244,7 +190,7 @@
 #' 
 #' @author Vanderlei Julio Debastiani <vanderleidebastiani@@yahoo.com.br>
 #' @seealso \code{\link[SYNCSA]{matrix.p}}, \code{\link{pcps}}, \code{\link[vegan]{procrustes}}, 
-#' \code{\link{glm}}, \code{\link[vegan]{rda}}, \code{\link[vegan]{adonis}}, \code{\link[vegan]{adonis2}}, 
+#' \code{\link{glm}}, \code{\link[vegan]{rda}}, \code{\link[vegan]{adonis2}}, 
 #' \code{\link[vegan]{mantel}}
 #' @references Duarte, L.S. (2011). Phylogenetic habitat filtering influences forest 
 #' nucleation in grasslands. Oikos, 120, 208:215.
@@ -260,11 +206,6 @@
 #' # MANTEL
 #' res <- matrix.p.sig(flona$community,flona$phylo, FUN = FUN.MANTEL, method.p = "bray", 
 #'              method.envir = "euclidean", envir = flona$environment[, 2, drop = FALSE], runs = 99)
-#' res
-#' 
-#' # ADONIS
-#' res <- matrix.p.sig(flona$community,flona$phylo, FUN = FUN.ADONIS, method.p = "bray", 
-#'              formula = p.dist~temp, envir = flona$environment[, 2, drop = FALSE], runs = 99)
 #' res
 #' 
 #' # ADONIS2
@@ -335,9 +276,6 @@ pcps.sig <- function (comm, phylodist, envir, checkdata = TRUE, method = "bray",
     comm <- organize.temp$community
     phylodist <- organize.temp$phylodist
     envir <- organize.temp$environmental
-    # str(envir)
-    # envir nao conferido
-    
   }
   if(length(list.warning)>0){
     res$list.warning <- list.warning
